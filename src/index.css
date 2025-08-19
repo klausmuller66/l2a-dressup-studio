@@ -18,9 +18,9 @@
     --popover: 320 30% 96%;
     --popover-foreground: 340 15% 25%;
 
-    /* Pink Primary System */
-    --primary: 330 65% 75%;
-    --primary-dark: 330 70% 65%;
+    /* Pink Primary System - Stronger contrast */
+    --primary: 330 85% 55%;
+    --primary-dark: 330 90% 45%;
     --primary-foreground: 0 0% 100%;
 
     /* Soft Secondary System */
@@ -35,10 +35,10 @@
     --accent: 280 30% 88%;
     --accent-foreground: 340 15% 25%;
 
-    /* Silver/Psychedelic for "2" */
-    --silver: 240 10% 85%;
-    --silver-light: 240 15% 90%;
-    --silver-dark: 240 15% 75%;
+    /* Silver/Psychedelic for "2" - Better contrast */
+    --silver: 240 15% 70%;
+    --silver-light: 240 20% 80%;
+    --silver-dark: 240 25% 60%;
 
     /* Upload zones */
     --upload-bg: 315 35% 94%;
@@ -139,7 +139,7 @@
   }
 
   .logo-exclamation {
-    @apply text-primary-foreground;
+    @apply text-foreground font-black;
   }
 
   /* Upload Zone Styles */
