@@ -131,7 +131,7 @@ const UploadZone = ({
       </div>
 
       {/* Add References Buttons */}
-      {!hasReferences && (
+      {!hasReferences && mainImage && (
         <div className="flex gap-2 justify-center">
           <Button
             variant="outline"

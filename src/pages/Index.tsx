@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Navigation from '@/components/Navigation';
 import Logo from '@/components/Logo';
 import UploadZone from '@/components/UploadZone';
 import OutputZone from '@/components/OutputZone';
@@ -40,6 +41,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background p-4 md:p-8">
+      <Navigation />
       <div className="max-w-6xl mx-auto">
         <Logo />
         

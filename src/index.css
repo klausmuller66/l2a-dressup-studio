@@ -129,17 +129,9 @@
     animation: pink-pulse 3s ease-in-out infinite;
   }
 
-  .logo-2 {
-    background: linear-gradient(45deg, hsl(var(--silver)), hsl(var(--silver-light)), hsl(var(--silver-dark)));
-    background-size: 200% 200%;
-    animation: psychedelic-silver 4s ease-in-out infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .logo-exclamation {
-    @apply text-foreground font-black;
+  .logo-2, .logo-exclamation {
+    @apply text-foreground;
+    text-shadow: 0 0 10px hsl(var(--silver) / 0.3);
   }
 
   /* Upload Zone Styles */
