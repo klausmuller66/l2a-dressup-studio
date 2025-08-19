@@ -2,39 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design System - L2A! Dress-up App */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Pastel Background System */
+    --background: 325 100% 98%;
+    --foreground: 340 15% 25%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card System */
+    --card: 320 30% 96%;
+    --card-foreground: 340 15% 25%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover System */
+    --popover: 320 30% 96%;
+    --popover-foreground: 340 15% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Pink Primary System */
+    --primary: 330 65% 75%;
+    --primary-dark: 330 70% 65%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft Secondary System */
+    --secondary: 310 25% 90%;
+    --secondary-foreground: 340 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted Pastels */
+    --muted: 315 20% 92%;
+    --muted-foreground: 340 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent Pastels */
+    --accent: 280 30% 88%;
+    --accent-foreground: 340 15% 25%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Silver/Psychedelic for "2" */
+    --silver: 240 10% 85%;
+    --silver-light: 240 15% 90%;
+    --silver-dark: 240 15% 75%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Upload zones */
+    --upload-bg: 315 35% 94%;
+    --upload-border: 330 45% 85%;
+    --upload-hover: 330 40% 90%;
+
+    /* Destructive (kept minimal) */
+    --destructive: 0 65% 70%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 330 35% 88%;
+    --input: 320 25% 94%;
+    --ring: 330 65% 75%;
 
     --radius: 0.5rem;
 
@@ -101,5 +119,106 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Logo Animations */
+  .logo-l, .logo-a {
+    @apply text-primary;
+    animation: pink-pulse 3s ease-in-out infinite;
+  }
+
+  .logo-2 {
+    background: linear-gradient(45deg, hsl(var(--silver)), hsl(var(--silver-light)), hsl(var(--silver-dark)));
+    background-size: 200% 200%;
+    animation: psychedelic-silver 4s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .logo-exclamation {
+    @apply text-primary-foreground;
+  }
+
+  /* Upload Zone Styles */
+  .upload-zone {
+    @apply bg-upload-bg border-2 border-dashed border-upload-border rounded-xl transition-all duration-300;
+  }
+
+  .upload-zone:hover {
+    @apply bg-upload-hover border-primary;
+  }
+
+  .upload-zone.has-image {
+    @apply border-solid border-primary bg-card;
+  }
+
+  /* Image containers */
+  .image-container {
+    @apply relative overflow-hidden rounded-lg cursor-pointer transition-transform duration-200;
+  }
+
+  .image-container:hover {
+    @apply scale-105;
+  }
+
+  .image-preview {
+    @apply w-full h-full object-cover;
+  }
+
+  /* Reference indicators */
+  .reference-indicator {
+    @apply absolute top-2 right-2 bg-primary text-primary-foreground p-1 rounded-full text-xs flex items-center justify-center;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@layer utilities {
+  /* Custom Tailwind utilities */
+  .bg-upload-bg {
+    background-color: hsl(var(--upload-bg));
+  }
+  
+  .bg-upload-hover {
+    background-color: hsl(var(--upload-hover));
+  }
+  
+  .border-upload-border {
+    border-color: hsl(var(--border));
+  }
+  
+  .text-silver {
+    color: hsl(var(--silver));
+  }
+}
+
+/* Keyframe Animations */
+@keyframes pink-pulse {
+  0%, 100% {
+    color: hsl(var(--primary));
+  }
+  50% {
+    color: hsl(var(--primary-dark));
+  }
+}
+
+@keyframes psychedelic-silver {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
